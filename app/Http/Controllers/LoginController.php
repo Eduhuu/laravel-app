@@ -39,6 +39,8 @@ class LoginController extends Controller
 
     public function destroy(Request $request)
     {
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
         session()->flush();
         return redirect("/");
     }

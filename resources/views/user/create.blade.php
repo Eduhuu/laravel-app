@@ -3,7 +3,6 @@
         <div class=" bg-gray-200 rounded px-6 py-4 shadow">
             <form class="grid grid-cols-2 gap-2" method="POST" action="{{ route('user.store') }}"  enctype="multipart/form-data">
                 @csrf
-                
                 @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>

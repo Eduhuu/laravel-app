@@ -20,8 +20,8 @@
                     <input class="bourder border-1 border-gray-300 rounded" type="password" name="password" id="password" required>
                 </div>
                 <a class="text-sm" href="/user/create">No posee cuenta? Registrate</a>
+                <a class="text-sm" href="{{route("forgotpassword.show")}}">Olvido contrasena</a>
                 <button class="border border-1 rounded border-gray-500 self-end px-2 py-1" type="submit">Iniciar sesión</button>
-        
             </form>
         </div>
     </div>

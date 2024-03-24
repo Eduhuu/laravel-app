@@ -31,7 +31,7 @@
                             <x-iconoir-log-out />
                         </button>
                     </form>
-                    <a href="{{route("home")}}">
+                    <a href="{{route("admin")}}">
                         <x-iconoir-shopping-code />
                     </a>
                 </div>
