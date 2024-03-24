@@ -27,7 +27,7 @@ class LoginController extends Controller
         
         error_log('Todo cool');
  
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt($credentials) && !Auth::user()->blocked) {
             $request->session()->regenerate();
             session()->put('user', Auth::user());
             return redirect()->intended('/');

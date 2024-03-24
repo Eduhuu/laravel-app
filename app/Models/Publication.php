@@ -37,4 +37,8 @@ class Publication extends Model
     {
         return $this->hasMany(Comment::class);
     }
+    public function commentCant()
+    {
+        return $this->comments()->count(); 
+    }
 }

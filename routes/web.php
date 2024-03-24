@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\UserController;
 use \App\Http\Controllers\ForgotPasswordController;
 use \App\Http\Controllers\AdminController;
+use \App\Http\Controllers\UserBlockController;
+
 
 Route::get('login', [LoginController::class, "create"])->middleware('guest')->name('login.create');
 Route::get('login', [LoginController::class, "create"])->middleware('guest')->name('login');
@@ -29,9 +31,10 @@ Route::get('/', [IndexController::class, "index"])->middleware(['auth'])->name('
 // Route::delete('/user/{id}',[UserController::class, 'destroy'])->name('user.destroy');
 
 Route::resource("user", UserController::class);
+Route::post('/users/{user}/block', [UserController::class, 'block'])->name('users.block');
+
 Route::resource("publication", PublicationController::class)->middleware(["auth"]);
+Route::post('/publication/{publication}/block', [PublicationController::class, 'block'])->name('publication.block');
 Route::resource("comment", CommentController::class)->middleware(["auth"]);
-// Route::post('comment', [CommentController::class, "store"])->name('comment.store');
-// Route::delete('/comment/{id}',[CommentController::class, 'destroy'])->name('comment.destroy');
 
 Route::get("admin", [AdminController::class,"index"])->middleware(["auth"])->name('admin');

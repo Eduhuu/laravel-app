@@ -7,9 +7,11 @@
                     <p>{{$publication->autor->name}}</p>
                 </div>
                 <div class="flex gap-2  items-center">
-                    <a href="{{route('publication.edit', $publication)}}">
-                        <x-iconoir-edit-pencil />
-                    </a>
+                    @if(session("user")->rol === "admin" || $publication->autor ===session("user")->id)
+                        <a href="{{route('publication.edit', $publication)}}">
+                            <x-iconoir-edit-pencil />
+                        </a>
+                    
                     <form class="flex items-center" action="{{route("publication.destroy", $publication)}}" method="POST">
                         @csrf
                         @method('DELETE')
@@ -17,6 +19,7 @@
                             <x-iconoir-trash />
                         </button>
                     </form>
+                    @endif
                 </div>
             </div>
             <img src="/{{$publication->image}}" alt="" class="rounded">
@@ -28,11 +31,11 @@
                 @foreach ($publication->comments as $comment)
                     <div class="flex bg-gray-300 rounded items-center px-2 py-1 gap-4">
                         <div class="flex gap-2">
-                            <img src="/{{$publication->autor->img}}" alt="" class="h-8 w-8 rounded-full">
+                            <img src="/{{$comment->autor->img}}" alt="" class="h-8 w-8 rounded-full">
                         </div>
                         <div class="w-full"> 
                             <div class="flex justify-between">
-                                <p>{{$publication->autor->name}} {{$publication->autor->lastname}}</p>    
+                                <p>{{$comment->autor->name}} {{$comment->autor->lastname}}</p>    
                                 <form action="{{route("comment.destroy", $comment)}}" method="POST">
                                     @csrf
                                     @method('DELETE')

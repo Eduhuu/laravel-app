@@ -137,6 +137,14 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $user->delete();
+        return redirect()->back()->with('success','');
     }
+
+    public function block(User $user)
+{
+    $user->update(['blocked' => !$user->blocked ]);
+    return redirect()->back()->with('success', 'Usuario bloqueado exitosamente.');
+}
+    
 }

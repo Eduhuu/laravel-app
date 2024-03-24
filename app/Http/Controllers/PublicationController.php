@@ -129,4 +129,10 @@ class PublicationController extends Controller
         $publication->delete();
         return redirect('/')->with('success','Se elimino exitosamente.');
     }
+
+    public function block(Publication $publication)
+    {
+        $publication->update(['blocked' => !$publication->blocked ]);
+        return redirect()->back()->with('success', 'Usuario bloqueado exitosamente.');
+    }
 }

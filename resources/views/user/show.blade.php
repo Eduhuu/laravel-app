@@ -8,7 +8,7 @@
                     </a>
                     <h1>Perfil</h1>
                 </div>
-                @if ($user->id == session('user')->id)
+                @if ($user->id == session('user')->id || session('user')->rol === "admin")
                     <a href="{{ route('user.edit', $user) }}">Editar usuario</a>
                 @endif
             </div>

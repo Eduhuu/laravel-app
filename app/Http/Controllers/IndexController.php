@@ -13,7 +13,7 @@ class IndexController extends Controller
      */
     public function index()
     {
-        $publications = Publication::query()->orderBy('created_at', 'desc')->paginate(1);
+        $publications = Publication::query()->where('blocked', false)->orderBy('created_at', 'desc')->paginate(1);
         $user = session('user');
         return view("index", ["publications" => $publications, "user"=> $user]);
     }

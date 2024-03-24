@@ -31,9 +31,11 @@
                             <x-iconoir-log-out />
                         </button>
                     </form>
-                    <a href="{{route("admin")}}">
-                        <x-iconoir-shopping-code />
-                    </a>
+                    @if(session("user")->rol === "admin")
+                        <a href="{{route("admin")}}">
+                            <x-iconoir-shopping-code />
+                        </a>
+                    @endif
                 </div>
             @endif
         </header>
