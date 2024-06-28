@@ -9,7 +9,7 @@ use \App\Http\Controllers\UserController;
 use \App\Http\Controllers\ForgotPasswordController;
 use \App\Http\Controllers\AdminController;
 use \App\Http\Controllers\UserBlockController;
-
+use \App\Http\Middleware\AdminMiddleware;
 
 Route::get('login', [LoginController::class, "create"])->middleware('guest')->name('login.create');
 Route::get('login', [LoginController::class, "create"])->middleware('guest')->name('login');
@@ -35,6 +35,6 @@ Route::post('/users/{user}/block', [UserController::class, 'block'])->name('user
 
 Route::resource("publication", PublicationController::class)->middleware(["auth"]);
 Route::post('/publication/{publication}/block', [PublicationController::class, 'block'])->name('publication.block');
-Route::resource("comment", CommentController::class)->middleware(["auth"]);
 
-Route::get("admin", [AdminController::class,"index"])->middleware(["auth"])->name('admin');
+Route::resource("comment", CommentController::class)->middleware(["auth"]);
+Route::get("admin", [AdminController::class,"index"])->middleware(["admin"])->name('admin');

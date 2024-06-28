@@ -1,4 +1,49 @@
 <x-layout>
+    <div class="w-full flex justify-center">
+    <div class="w-[90%]">
+        <div class="grid grid-cols-4 gap-2">
+            <div>
+                <strong>
+                    Cantidad de usuarios:
+                </strong>
+                <p>{{$totalUsers}} </p>
+            </div>
+            <div class="flex gap-2">
+                <div>
+                    <strong>
+                        Cantidad de publicaciones: 
+                    </strong>
+                    <p>{{$totalPublications}} </p>
+                </div>
+            </div>
+            <div class="flex gap-2">
+                <div>
+                    <strong>
+                        Cantidad de comentarios:
+                    </strong>
+                    <p>3</p>
+                </div>
+            </div>
+            <div class="flex gap-2">
+                <div>
+                    <strong>
+                        Usuario con mayor cantidad de publicaciones:
+                    </strong>
+                    <p>User1</p>
+                </div>
+            </div>
+            <div class="flex gap-2">
+                <div>
+                    <strong>
+                        Usuario con mayor cantidad de comentarios:
+                    </strong>
+                    <p>User1</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
     <div class="mt-4 w-full flex justify-center">
         <div class="w-[90%] bg-gray-100 rounded px-10 py-8">
             <h2>Usuarios cargados en la aplicacion</h2>
@@ -28,7 +73,7 @@
                     </td>
                     <td class="px-4">
                         <div class="flex justify-center gap-2">
-                            <form action="{{route("user.destroy",$user)}}" class="flex gap-2 items-center" method="POST">
+                            <form action="{{route("user.destroy", $user)}}" class="flex gap-2 items-center" method="POST">
                                 @csrf
                                 @method("DELETE")
                                 <button>
@@ -84,7 +129,7 @@
 
                             <div class="flex justify-center gap-2">
 
-                            <form action="{{route("publication.destroy",$publication)}}" class="flex gap-2 items-center" method="POST">
+                            <form action="{{route("publication.destroy", $publication)}}" class="flex gap-2 items-center" method="POST">
                                 @csrf
                                 @method("DELETE")
                                 <button>
