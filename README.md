@@ -186,10 +186,11 @@ VITE_APP_NAME="${APP_NAME}"
 
     npm install
 
+### Cargamos todos los estilos de la app.
+
+    npm run dev
+
 ### Ejecutamos el proyecto con:
 
     php artisan serve
 
-### Para cargar los estilos del proyecto
-
-    npm run dev
