@@ -18,7 +18,6 @@ Para instalar Composer:
 - Descargamos Composer
     ```
     curl -sS https://getcomposer.org/installer -o /tmp/composer-setup.php
-    sudo mv composer.phar /usr/bin/composer
     ```
 
 - Para comprobar que se descargo correctamente, obtenemos el hash  con:
@@ -188,9 +187,9 @@ VITE_APP_NAME="${APP_NAME}"
 
 ### Cargamos todos los estilos de la app.
 
-    npm run dev
+    npm run build
 
 ### Ejecutamos el proyecto con:
 
-    php artisan serve
+    php artisan serve --host=0.0.0.0 --port=8000
 
