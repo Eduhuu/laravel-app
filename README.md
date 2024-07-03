@@ -181,10 +181,9 @@ VITE_APP_NAME="${APP_NAME}"
 ```
 
 Luego debemos correr las migraciones:
-
-    ```
-    php artisan migrate
-    ```
+```
+php artisan migrate
+```
 
 ### Instalamos las dependencias de node
 
@@ -195,10 +194,9 @@ Luego debemos correr las migraciones:
     npm run build
 
 ### Tenemos que crear unas ultimas carpetas:
-
-    ```
-    mkdir resources/svg/
-    ```
+```
+mkdir resources/svg/
+```
 
 ### Finalmente ejecutamos el proyecto proyecto con:
 
