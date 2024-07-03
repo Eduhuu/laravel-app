@@ -106,9 +106,8 @@ Por lo que debemos cambiar las credenciades del usuarios postgres
     
     ```
     exit
+    exit
     ```
-
-- Por ultimo queda crear las migraciones:
 
 ### Debemos crear el .env
 Para ello creamos un archivo .env en la raiz del proyecto con el siguiente contenido:
@@ -181,6 +180,12 @@ AWS_USE_PATH_STYLE_ENDPOINT=false
 VITE_APP_NAME="${APP_NAME}"
 ```
 
+Luego debemos correr las migraciones:
+
+    ```
+    php artisan migrate
+    ```
+
 ### Instalamos las dependencias de node
 
     npm install
@@ -189,7 +194,13 @@ VITE_APP_NAME="${APP_NAME}"
 
     npm run build
 
-### Ejecutamos el proyecto con:
+### Tenemos que crear unas ultimas carpetas:
+
+    ```
+    mkdir resources/svg/
+    ```
+
+### Finalmente ejecutamos el proyecto proyecto con:
 
     php artisan serve --host=0.0.0.0 --port=8000
 
