@@ -72,7 +72,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        
+        // dd($user->id,session('user'));
         return view("user.show",["user"=> $user]);
     }
 

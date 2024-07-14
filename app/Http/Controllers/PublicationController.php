@@ -67,8 +67,15 @@ class PublicationController extends Controller
     /**
      * Display the specified resource.
      */
+    // public function show(string $publication_id)
+    // {   
+    //     $publication = Publication::find($publication_id);
+    //     return view("publication.show", ["publication" => $publication]);
+    // }
+
     public function show(Publication $publication)
-    {
+    {   
+        // $publication = Publication::find($publication_id);
         return view("publication.show", ["publication" => $publication]);
     }
 

@@ -2,23 +2,27 @@
     <div class="flex justify-center gap-32 py-8">
         <div class="flex flex-col gap-2 bg-gray-200 px-8 py-4 rounded">
             <div class="flex items-center justify-between">
-                <div class="flex gap-2 items-center">
-                    <img class="h-8 w-8 rounded-full" src="/{{$publication->autor->img}}" alt="">
-                    <p>{{$publication->autor->name}}</p>
-                </div>
+                @if ($publication->autor)
+                    <div class="flex gap-2 items-center">
+                        <img class="h-8 w-8 rounded-full" src="/{{$publication->autor->img}}" alt="">
+                        <p>{{$publication->autor->name}}</p>
+                    </div>
+                @endif
                 <div class="flex gap-2  items-center">
-                    @if(session("user")->rol === "admin" || $publication->autor ===session("user")->id)
-                        <a href="{{route('publication.edit', $publication)}}">
-                            <x-iconoir-edit-pencil />
-                        </a>
-                    
-                    <form class="flex items-center" action="{{route("publication.destroy", $publication)}}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button>
-                            <x-iconoir-trash />
-                        </button>
-                    </form>
+                    @if (session("user"))
+                        @if(session("user") && session("user")->rol === "admin" || $publication->autor ===session("user")->id)
+                            <a href="{{route('publication.edit', $publication)}}">
+                                <x-iconoir-edit-pencil />
+                            </a>
+                        
+                        <form class="flex items-center" action="{{route("publication.destroy", $publication)}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button>
+                                <x-iconoir-trash />
+                            </button>
+                        </form>
+                        @endif
                     @endif
                 </div>
             </div>

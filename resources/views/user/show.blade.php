@@ -8,8 +8,10 @@
                     </a>
                     <h1>Perfil</h1>
                 </div>
-                @if ($user->id == session('user')->id || session('user')->rol === "admin")
-                    <a href="{{ route('user.edit', $user) }}">Editar usuario</a>
+                @if (session('user'))
+                    @if ($user->id == session('user')->id || session('user')->rol === "admin")
+                        <a href="{{ route('user.edit', $user) }}">Editar usuario</a>
+                    @endif
                 @endif
             </div>
             <div class="flex flex-col gap-0 items-center">

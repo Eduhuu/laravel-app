@@ -1,11 +1,13 @@
 <x-layout>
     <div class="w-full min-h-[95vh] relative py-3">
+        @if ($user)
         <a class="absolute left-0 top-0 p-2 flex gap-2" href="{{route("publication.create")}}">
             <p>
                 Crear publicacion
             </p>
             <x-iconoir-plus-circle class="text-xs"/>    
         </a>
+        @endif
         <div class="flex flex-col items-center gap-2">
             @foreach ($publications as $publication)
                 <div>
